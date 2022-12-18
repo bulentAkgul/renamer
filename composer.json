@@ -1,0 +1,30 @@
+{
+  "name": "bakgul/renamer",
+  "description": "A package to rename files and folders, as well as to updated the affected files' content.",
+  "authors": [
+    {
+      "name": "Bulent Akgul",
+      "email": "bulent.akgul@me.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.0.2",
+    "bakgul/kernel": "1.1.*",
+    "bakgul/file-content": "1.1.*",
+    "bakgul/file-history": "1.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bakgul\\Renamer\\": "src/",
+      "Bakgul\\Renamer\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bakgul\\Renamer\\RenamerServiceProvider"
+      ]
+    }
+  }
+}
