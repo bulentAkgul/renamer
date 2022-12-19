@@ -14,8 +14,6 @@ use Bakgul\Renamer\Services\UpdateService;
 use Bakgul\Renamer\Services\UpdateServices\UpdateFileContentService;
 use Bakgul\Renamer\Services\UpdateServices\UpdateOwnedNamespaceService;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
 
 class RenameCommand extends Command
 {
@@ -40,9 +38,6 @@ class RenameCommand extends Command
         $this->update();
 
         $this->rename();
-
-        Artisan::call('undo-log');
-        Artisan::call('redo-log');
     }
 
     private function isTerminated(): bool
