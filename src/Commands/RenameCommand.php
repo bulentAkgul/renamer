@@ -31,19 +31,6 @@ class RenameCommand extends Command
 
     public function handle()
     {
-        ray()->clearAll();
-        if (env('APP_ENV') != 'testing') {
-            Settings::set('renameables.warnings.is_not_a_test', false);
-
-            Artisan::call('delete-logs');
-
-            $path = base_path('_test_repo/app/Renamings');
-
-            File::deleteDirectory($path);
-            File::copyDirectory(__DIR__ . '/../../files/Renamings', $path);
-        }
-
-
         if ($this->isTerminated()) return;
 
         $this->logFile();
