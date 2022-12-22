@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\Renamer\Tests\Feature\CommandTests;
+namespace Bakgul\Renamer\Tests\RenamerTests\CommandTests;
 
 use Bakgul\Renamer\Tests\TestCase;
 

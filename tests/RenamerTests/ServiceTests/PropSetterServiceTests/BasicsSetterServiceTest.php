@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\Renamer\Tests\Feature\ServiceTests\PropSetterServiceTests;
+namespace Bakgul\Renamer\Tests\RenamerTests\ServiceTests\PropSetterServiceTests;
 
 use Bakgul\Renamer\Services\PropSetterServices\BasicsSetterService;
 use Bakgul\Renamer\Tests\TestCase;
