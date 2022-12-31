@@ -10,9 +10,9 @@
   "license": "MIT",
   "require": {
     "php": "^8.0.2",
-    "bakgul/kernel": "@dev",
-    "bakgul/file-content": "@dev",
-    "bakgul/file-history": "@dev"
+    "bakgul/kernel": "1.1.*",
+    "bakgul/file-content": "1.1.*",
+    "bakgul/file-history": "1.1.*"
   },
   "autoload": {
     "psr-4": {
