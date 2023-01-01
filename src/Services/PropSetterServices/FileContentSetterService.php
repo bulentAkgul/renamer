@@ -2,7 +2,7 @@
 
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
-use Bakgul\Kernel\Helpers\Arry;
+use Bakgul\Kernel\Helpers\Arr;
 use Bakgul\Kernel\Helpers\Settings;
 
 class FileContentSetterService
@@ -22,7 +22,7 @@ class FileContentSetterService
     {
         if ($this->isFolder()) return [];
 
-        return Arry::map(
+        return Arr::map(
             Settings::get('renameables.content_checkers'),
             fn ($pattern) => $this->setContent($pattern)
         );
@@ -35,7 +35,7 @@ class FileContentSetterService
 
     private function setContent(string $pattern)
     {
-        return Arry::assocMap(['from' => 0, 'to' => 0], fn ($k) => $this->replace($pattern, $k));
+        return Arr::assocMap(['from' => 0, 'to' => 0], fn ($k) => $this->replace($pattern, $k));
     }
 
     private function replace(string $pattern, string $key)

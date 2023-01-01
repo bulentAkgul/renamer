@@ -5,7 +5,7 @@ namespace Bakgul\Renamer\Services\PropSetterServices;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Kernel\Helpers\Str;
 use Bakgul\Renamer\Contracts\NamespaceSetter;
-use Illuminate\Support\Arr;
+use Bakgul\Kernel\Helpers\Arr;
 
 class UsingNamespaceSetterService extends NamespaceSetter
 {

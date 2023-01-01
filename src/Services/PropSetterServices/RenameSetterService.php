@@ -3,7 +3,7 @@
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
 use Bakgul\Kernel\Exceptions\ConsoleException;
-use Bakgul\Kernel\Helpers\Arry;
+use Bakgul\Kernel\Helpers\Arr;
 use Bakgul\Kernel\Helpers\Folder;
 use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Kernel\Helpers\Str;
@@ -64,7 +64,7 @@ class RenameSetterService implements PropSetter
 
     private function setRenamings($renamings)
     {
-        return Arry::sort(
+        return Arr::arrange(
             $this->modifyRenamings($renamings),
             callback: $this->sort()
         );
@@ -74,8 +74,8 @@ class RenameSetterService implements PropSetter
     {
         $arg = DIRECTORY_SEPARATOR . $this->props['basics']['from']['arg'];
 
-        return Arry::sort(Arry::unique(array_map(
-            fn ($x) => implode($arg, Arry::drop(explode($arg, $x))) . $arg,
+        return Arr::arrange(Arr::unique(array_map(
+            fn ($x) => implode($arg, Arr::drop(explode($arg, $x))) . $arg,
             $renamings
         )));
     }
