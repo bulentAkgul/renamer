@@ -6,7 +6,7 @@ use Bakgul\Kernel\Exceptions\ConsoleException;
 use Bakgul\Kernel\Helpers\Arry;
 use Bakgul\Kernel\Helpers\Folder;
 use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Kernel\Helpers\Text;
+use Bakgul\Kernel\Helpers\Str;
 use Bakgul\Renamer\Contracts\PropSetter;
 
 class RenameSetterService implements PropSetter
@@ -124,7 +124,7 @@ class RenameSetterService implements PropSetter
 
     private function rename(string $path): string
     {
-        return Text::dropTail($path) . DIRECTORY_SEPARATOR . $this->props['basics']['to']['arg'];
+        return Str::dropTail($path) . DIRECTORY_SEPARATOR . $this->props['basics']['to']['arg'];
     }
 
     private function combine(array $from, array $to): array

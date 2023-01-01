@@ -3,7 +3,7 @@
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
 use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Kernel\Helpers\Text;
+use Bakgul\Kernel\Helpers\Str;
 use Bakgul\Renamer\Contracts\NamespaceSetter;
 use Illuminate\Support\Arr;
 
@@ -45,7 +45,7 @@ class UsingNamespaceSetterService extends NamespaceSetter
 
     private function getName(string $file): string
     {
-        return Text::getTail(explode('.', $file)[0]);
+        return Str::getTail(explode('.', $file)[0]);
     }
 
     private function generate(): array

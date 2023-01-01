@@ -2,7 +2,7 @@
 
 namespace Bakgul\Renamer\Tests;
 
-use Bakgul\Kernel\Helpers\Text;
+use Bakgul\Kernel\Helpers\Str;
 use Bakgul\Kernel\Tests\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\File;
 
