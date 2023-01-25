@@ -2,8 +2,8 @@
 
 namespace Bakgul\Renamer\Tests;
 
-use Bakgul\Kernel\Helpers\Str;
 use Bakgul\Kernel\Tests\TestCase as BaseTestCase;
+use Bakgul\Kernel\Tests\TestTasks\SetupTest;
 use Illuminate\Support\Facades\File;
 
 abstract class TestCase extends BaseTestCase
@@ -12,12 +12,21 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
+        $this->setupApp();
+
         $this->copyDummyFiles();
     }
 
     public function tearDown(): void
     {
         parent::tearDown();
+    }
+
+    protected function setupApp(): void
+    {
+        (new SetupTest)();
+
+        if (!file_exists(base_path('app'))) mkdir(base_path('app'));
     }
 
     protected function copyDummyFiles()
