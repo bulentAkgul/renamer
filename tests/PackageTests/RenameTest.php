@@ -1,6 +1,6 @@
 <?php
 
-namespace Bakgul\Renamer\Tests\RenamerTests;
+namespace Bakgul\Renamer\Tests\PackageTests;
 
 use Bakgul\Kernel\Helpers\Arr;
 use Bakgul\Kernel\Helpers\Folder;
