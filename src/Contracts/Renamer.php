@@ -2,7 +2,7 @@
 
 namespace Bakgul\Renamer\Contracts;
 
-use Bakgul\FileHistory\Services\LogServices\ForUndoingLogService;
+use Bakgul\FileHistory\FileHistory;
 use Bakgul\Renamer\Tasks\BuildConsoleOutput;
 use Illuminate\Support\Facades\File;
 
@@ -55,6 +55,6 @@ abstract class Renamer extends ExecutorService
 
     private function setLog()
     {
-        ForUndoingLogService::set($this->getLog(), $this->isFolder(), false);
+        FileHistory::set($this->getLog(), $this->isFolder(), false);
     }
 }
