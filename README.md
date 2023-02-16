@@ -13,10 +13,10 @@ Since this package will mess with your files, never use it before backup your co
 ```
 sail composer require bakgul/renamer --dev
 ```
-Next, you need to publish the settings by executing the following command. By doing so, you will have a new file named *packagify.php* on the config folder. "**renameables**" is the key of this package's settings.
+Next, you need to publish the settings by executing the following command.
 
 ```
-sail artisan packagify:publish-config
+sail artisan vendor:publish --provider="Bakgul\Renamer\RenamerServiceProvider"
 ```
 
 ## Commands
@@ -32,4 +32,4 @@ sail artisan rename {from} {to} {--f|folder}
 
 ### Options
 
--   **folder**: When this is true, renaimg will be performed on folders.
+-   **folder**: When this is true, renaming will be performed on folders.
