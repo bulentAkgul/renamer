@@ -2,11 +2,9 @@
 
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
-use Bakgul\Kernel\Exceptions\ConsoleException;
-use Bakgul\Kernel\Helpers\Arr;
-use Bakgul\Kernel\Helpers\Folder;
-use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Kernel\Helpers\Str;
+use Bakgul\LaravelHelpers\Helpers\Arr;
+use Bakgul\LaravelHelpers\Helpers\Folder;
+use Bakgul\LaravelHelpers\Helpers\Str;
 use Bakgul\Renamer\Contracts\PropSetter;
 
 class RenameSetterService implements PropSetter
@@ -36,16 +34,17 @@ class RenameSetterService implements PropSetter
         if ($this->isProceedable($from)) return;
 
         $this->props['command']['instance']->info($this->message($from, 'info'));
+
         $response = $this->props['command']['instance']->confirm($this->message($from, 'question'));
 
-        if ($response == false) throw new ConsoleException('Command has been terminated.');
+        if ($response == false) throw new \Exception('Command has been terminated.');
     }
 
     private function isProceedable(array $from)
     {
         return count($from) < 2
             || $this->props['basics']['is_folder']
-            || !Settings::get('renameables', 'warnings.renames_multiple_files');
+            || !config('renamer.warnings.renames_multiple_files');
     }
 
     private function from()
@@ -64,7 +63,7 @@ class RenameSetterService implements PropSetter
 
     private function setRenamings($renamings)
     {
-        return Arr::arrange(
+        return Arr::order(
             $this->modifyRenamings($renamings),
             callback: $this->sort()
         );
@@ -74,8 +73,8 @@ class RenameSetterService implements PropSetter
     {
         $arg = DIRECTORY_SEPARATOR . $this->props['basics']['from']['arg'];
 
-        return Arr::arrange(Arr::unique(array_map(
-            fn ($x) => implode($arg, Arr::drop(explode($arg, $x))) . $arg,
+        return Arr::order(Arr::unique(array_map(
+            fn ($x) => implode($arg, Arr::delete(explode($arg, $x))) . $arg,
             $renamings
         )));
     }

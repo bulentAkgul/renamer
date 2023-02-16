@@ -2,7 +2,7 @@
 
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
-use Bakgul\Kernel\Helpers\Folder;
+use Bakgul\LaravelHelpers\Helpers\Folder;
 use Bakgul\Renamer\Contracts\NamespaceSetter;
 
 class OwnedNamespaceSetterService extends NamespaceSetter

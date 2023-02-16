@@ -2,13 +2,14 @@
 
 return [
     'warnings' => [
-        'is_not_a_test' => true,
+        'is_not_a_test' => false,
         'renames_multiple_files' => false,
     ],
     'folders' => [
-        'testing' => ['app', 'tests'],
-        'default' => ['_test_repo']
+        'testing' => ['app', 'packages', 'tests'],
+        'default' => ['app', 'database', 'package', 'packages', 'tests']
     ],
+    'extensions' => ['php', 'css', 'sass', 'scss', 'ts', 'js'],
     'content_checkers' => [
         'class {x}',
         'enum {x}',

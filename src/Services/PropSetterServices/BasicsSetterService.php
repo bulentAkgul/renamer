@@ -2,8 +2,6 @@
 
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
-use Bakgul\Kernel\Helpers\Settings;
-
 class BasicsSetterService
 {
     public function __construct(private array $props)
@@ -71,7 +69,7 @@ class BasicsSetterService
 
     private function getFolders()
     {
-        return Settings::get('renameables.folders', $this->folderKey());
+        return config("renamer.folders.{$this->folderKey()}");
     }
 
     private function folderKey(): string

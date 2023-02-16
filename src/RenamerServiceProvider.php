@@ -2,22 +2,25 @@
 
 namespace Bakgul\Renamer;
 
-use Bakgul\Kernel\Concerns\HasConfig;
 use Illuminate\Support\ServiceProvider;
 
 class RenamerServiceProvider extends ServiceProvider
 {
-    use HasConfig;
-
     public function boot()
     {
         $this->commands([
             \Bakgul\Renamer\Commands\RenameCommand::class,
         ]);
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/config.php' => config_path('renamer.php'),
+            ], 'config');
+        }
     }
 
     public function register()
     {
-        $this->registerConfigs(__DIR__ . DIRECTORY_SEPARATOR . '..');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'renamer');
     }
 }

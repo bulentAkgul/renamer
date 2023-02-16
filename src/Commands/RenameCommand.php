@@ -3,9 +3,6 @@
 namespace Bakgul\Renamer\Commands;
 
 use Bakgul\FileHistory\Concerns\HasHistory;
-use Bakgul\Kernel\Concerns\HasPreparation;
-use Bakgul\Kernel\Concerns\HasRequest;
-use Bakgul\Kernel\Helpers\Settings;
 use Bakgul\Renamer\Services\PropSetterService;
 use Bakgul\Renamer\Services\RenameService;
 use Bakgul\Renamer\Services\RenameServices\RenameFileService;
@@ -17,15 +14,12 @@ use Illuminate\Console\Command;
 
 class RenameCommand extends Command
 {
-    use HasHistory, HasPreparation, HasRequest;
+    use HasHistory;
 
     protected $signature = 'rename {from} {to} {--f|folder}';
     protected $description = '';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    private array $props;
 
     public function handle()
     {
@@ -48,7 +42,7 @@ class RenameCommand extends Command
     private function isRisky()
     {
         return env('APP_ENV') != 'testing'
-            && Settings::get('renameables', 'warn_me_in_console');
+            && config('renamer.warnings.is_not_a_test');
     }
 
     private function isStopped()

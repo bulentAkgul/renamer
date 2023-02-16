@@ -2,10 +2,9 @@
 
 namespace Bakgul\Renamer\Services\PropSetterServices;
 
-use Bakgul\Kernel\Helpers\Settings;
-use Bakgul\Kernel\Helpers\Str;
+use Bakgul\LaravelHelpers\Helpers\Arr;
+use Bakgul\LaravelHelpers\Helpers\Str;
 use Bakgul\Renamer\Contracts\NamespaceSetter;
-use Bakgul\Kernel\Helpers\Arr;
 
 class UsingNamespaceSetterService extends NamespaceSetter
 {
@@ -84,7 +83,7 @@ class UsingNamespaceSetterService extends NamespaceSetter
 
     private function extendCheckers()
     {
-        return Arr::crossJoin([' ', ' \\'], Settings::get('renameables.namespace_checkers'));
+        return Arr::crossJoin([' ', ' \\'], config('renamer.namespace_checkers'));
     }
 
     private function applyCheckerTo($namespaces, $checker): array

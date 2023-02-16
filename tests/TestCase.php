@@ -14,7 +14,7 @@ abstract class TestCase extends BaseTestCase
 
         $this->setupApp();
 
-        $this->copyDummyFiles();
+        $this->copyTestFiles();
     }
 
     public function tearDown(): void
@@ -25,15 +25,18 @@ abstract class TestCase extends BaseTestCase
     protected function setupApp(): void
     {
         (new SetupTest)();
-
-        if (!file_exists(base_path('app'))) mkdir(base_path('app'));
     }
 
-    protected function copyDummyFiles()
+    protected function copyTestFiles()
     {
         File::copyDirectory(
-            __DIR__ . '/../files/Renamings',
+            __DIR__ . '/TestFiles/app',
             base_path('app/Renamings')
+        );
+
+        File::copyDirectory(
+            __DIR__ . '/TestFiles/src',
+            base_path('packages/testings/testing/src')
         );
     }
 }
