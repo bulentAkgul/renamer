@@ -6,8 +6,6 @@ use Bakgul\FileContent\Tasks\WriteToFile;
 
 abstract class Updater extends ExecutorService
 {
-    protected array $props = [];
-
     public function handle(array $props): array
     {
         $this->props = $props;

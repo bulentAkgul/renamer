@@ -6,6 +6,9 @@ use Bakgul\Renamer\Tasks\BuildConsoleOutput;
 
 abstract class ExecutorService
 {
+    protected array $props;
+    protected array $keys;
+
     protected function setChangeLog(string $from, string $to, string $path = '', int $index = 0)
     {
         $this->props['changeLog'][$this->keys['log']][] = [
