@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.0.2",
+    "php": "^8.1",
     "bakgul/kernel": "^3.0",
     "bakgul/file-content": "^2.0",
     "bakgul/file-history": "^3.0"
