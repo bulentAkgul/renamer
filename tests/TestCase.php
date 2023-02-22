@@ -4,7 +4,7 @@ namespace Bakgul\Renamer\Tests;
 
 use Bakgul\Kernel\Tests\TestCase as BaseTestCase;
 use Bakgul\Kernel\Tests\TestTasks\SetupTest;
-use Illuminate\Support\Facades\File;
+use Bakgul\LaravelHelpers\Helpers\File;
 
 abstract class TestCase extends BaseTestCase
 {

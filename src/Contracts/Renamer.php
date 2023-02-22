@@ -4,7 +4,7 @@ namespace Bakgul\Renamer\Contracts;
 
 use Bakgul\FileHistory\FileHistory;
 use Bakgul\Renamer\Tasks\BuildConsoleOutput;
-use Illuminate\Support\Facades\File;
+use Bakgul\LaravelHelpers\Helpers\File;
 
 abstract class Renamer extends ExecutorService
 {
